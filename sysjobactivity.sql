@@ -1,4 +1,8 @@
 -- get SQL Agent job activity
 SELECT
-	*
-FROM msdb.dbo.sysjobactivity;
+	j.[name]
+,	a.*
+FROM msdb.dbo.sysjobactivity a
+JOIN msdb.dbo.sysjobs j
+ON j.job_id = a.job_id;
+;
